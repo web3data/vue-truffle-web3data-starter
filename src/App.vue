@@ -1,14 +1,20 @@
 <template>
   <div id="app">
+    <Header />
     <router-view />
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import Header from './components/Header.vue'
 
 export default {
   name: 'App',
+
+  components: {
+    Header
+  },
 
   methods: {
     ...mapActions(['connect'])
@@ -16,17 +22,6 @@ export default {
 
   mounted() {
     this.connect()
-  },
-
-  watch: {
-    $route(to) {
-      if (!window.gtag) return
-      // update google analytics
-      window.gtag('config', 'UA-124568499-1', {
-        page_title: to.name,
-        page_path: to.fullPath
-      })
-    }
   }
 }
 </script>
@@ -35,7 +30,7 @@ export default {
 @import './scss/main.scss';
 
 body {
-  background: #f9f9f9;
+  background: #fafffd;
   padding: 0;
   margin: 0;
 }
@@ -44,7 +39,7 @@ body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $primary;
+  color: $black;
   margin: 0;
   display: flex;
   flex-direction: column;

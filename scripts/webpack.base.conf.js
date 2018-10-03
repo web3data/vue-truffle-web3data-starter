@@ -3,6 +3,7 @@ var utils = require('./utils')
 var config = require('../config/webpack')
 var vueLoaderConfig = require('../config/vue-loader/vue-loader.conf')
 
+
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -43,13 +44,17 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig,
+        loader: 'vue-loader'
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
         include: [resolve('src'), resolve('test')],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

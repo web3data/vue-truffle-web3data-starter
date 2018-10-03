@@ -27,6 +27,7 @@
   "author": "@taylorjdawson",
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime": "^7.0.0",
     "axios": "^0.18.0",
     "bignumber.js": "^7.2.1",
     "paper": "^0.11.5",
@@ -36,18 +37,19 @@
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
     "web3": "^1.0.0-beta.36",
+    "web3data-js": "^0.3.3",
     "zeppelin-solidity": "^1.12.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
     "autoprefixer": "^9.1.5",
-    "babel-core": "^6.22.1",
     "babel-eslint": "^10.0.0",
     "babel-loader": "^8.0.2",
     "babel-plugin-istanbul": "^5.0.1",
-    "babel-plugin-transform-runtime": "^6.22.0",
-    "babel-preset-env": "^1.3.2",
-    "babel-preset-stage-2": "^6.22.0",
-    "babel-register": "^6.22.0",
     "chai": "^4.1.2",
     "chalk": "^2.0.1",
     "chromedriver": "^2.42.0",
@@ -102,8 +104,9 @@
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.17",
-    "webpack": "^4.20.1",
+    "webpack": "^4.20.2",
     "webpack-bundle-analyzer": "^3.0.2",
+    "webpack-cli": "^3.1.1",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-hot-middleware": "^2.24.2",
     "webpack-merge": "^4.1.4"
@@ -116,37 +119,5 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ],
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "modules": false,
-          "targets": {
-            "browsers": [
-              "> 1%",
-              "last 2 versions",
-              "not ie <= 8"
-            ]
-          }
-        }
-      ],
-      "stage-2"
-    ],
-    "plugins": [
-      "transform-runtime"
-    ],
-    "env": {
-      "test": {
-        "presets": [
-          "env",
-          "stage-2"
-        ],
-        "plugins": [
-          "istanbul"
-        ]
-      }
-    }
-  }
+  ]
 }

@@ -19,5 +19,11 @@ export default {
   },
   CLEAR_CONTRACT(state) {
     state.Contract = null
+  },
+  USE_ABI(state, abi) {
+    state.abi = abi
   }
+  // SET_W3DATA(state, w3Data) {
+  //   state.w3Data = w3Data
+  // }
 }

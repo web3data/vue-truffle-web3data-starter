@@ -29,13 +29,19 @@ module.exports = {
     rinkeby: {
       // must be a thunk, otherwise truffle commands may hang in CI
       provider: () =>
-        new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${apiKey}`),
+        new HDWalletProvider(
+          mnemonic,
+          `https://rinkeby.infura.io/v3/${apiKey}`
+        ),
       network_id: 4
     },
     ropsten: {
       // must be a thunk, otherwise truffle commands may hang in CI
       provider: () =>
-        new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/${apiKey}`),
+        new HDWalletProvider(
+          mnemonic,
+          `https://ropsten.infura.io/v3/${apiKey}`
+        ),
       network_id: 3
     }
   }

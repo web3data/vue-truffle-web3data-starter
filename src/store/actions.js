@@ -1,13 +1,11 @@
-import axios from 'axios'
-import BN from 'bignumber.js'
 import Web3 from 'web3'
+// import Web3Data from 'web3data-js'
+// import dotenv from 'dotenv'
+// dotenv.load()
 
-const getHeaderOptions = state => {
-  return {
-    headers: {
-      'x-api-key': state.constants.opensea
-    }
-  }
+const getAbiDeployedAddress = abi => {
+  const networks = abi.networks
+  return networks[Math.max(...Object.keys(networks))].address
 }
 
 export default {
@@ -15,7 +13,7 @@ export default {
   connect({ commit, state, dispatch }) {
     let web3Provider = false
     if (typeof window.web3 !== 'undefined') {
-      web3Provider = window.web3.currentProvider
+      web3Provider = window.web3.currentProvider // window.web3.givenProvider?
       commit('SET_METAMASK', true)
     } else if (!state.retried) {
       commit('SET_RETRY', true)
@@ -24,13 +22,16 @@ export default {
       }, 1000)
     }
     if (state.retried && !web3Provider) {
-      web3Provider = new Web3.providers.HttpProvider(state.constants.rpcUrl)
+      web3Provider = new Web3(
+        window.web3.givenProvider || `ws://${process.env.RPC_PROVIDER}`
+      )
     }
     if (web3Provider) {
       window.web3 = new Web3(web3Provider)
       commit('SET_CONNECTED', true)
       dispatch('setAccountInterval')
       dispatch('mountContract')
+      dispatch('initializeWeb3Data')
     }
   },
 
@@ -57,7 +58,7 @@ export default {
       commit('CLEAR_CONTRACT')
       commit('USE_CONTRACT', {
         contract: window.web3.eth.contract(state.abi.abi),
-        address: state.constants.contractAddress
+        address: getAbiDeployedAddress(state.abi.abi)
       })
       setTimeout(() => {
         dispatch('myExample')
@@ -68,4 +69,22 @@ export default {
       }, 500)
     }
   }
+  // },
+  //
+  // initializeWeb3Data({ commit }) {
+  //   commit(
+  //     'SET_W3DATA',
+  //     new Web3Data({
+  //       apiKey: process.env.API_KEY,
+  //       blockchainId: '1c9c969065fcd1cf' /* Ethereum-mainnet */
+  //     })
+  //   )
+  // }
+  //
+  // getAddressInfo({ state }, addressHash) {
+  //   return state.w3Data
+  //     .addresses(addressHash)
+  //     .info()
+  //     .retrieve()
+  // }
 }

@@ -4,4 +4,6 @@ export default {
   metamask: state => state.metamask,
   connected: state => state.connected,
   Contract: state => state.Contract,
+  // w3Data: state => state.w3Data,
+  abi: state => state.abi
 }
