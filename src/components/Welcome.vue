@@ -22,7 +22,7 @@
         <div class="content">
           Using your shiny new api key 🗝️✨ create
           a <code>web3data</code> instance:<br><br>
-          <img src="../../static/web3data_examp.svg">
+          <img src="../../static/web3data_example.svg">
         </div>
       </div>
       <div class="step three">
@@ -41,11 +41,13 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: 'Welcome'
 }
 </script>
+
 <style lang="scss" scoped>
 $font-size: 3vw;
 $bg-color-main: #fafffd;
