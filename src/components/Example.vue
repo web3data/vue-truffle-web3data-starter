@@ -6,24 +6,30 @@
     <InputField :value="address" />
     <div class="example-selector">
       <div class="drop-down">
-        <select>
+        <select v-model="options" :class="{'error-class': hasError}">
+          <option disabled value="" v-if="hasError">Please select one</option>
           <option value="info">Info</option>
-          <option value="statistics">Statistics</option>
+          <option value="stats">Statistics</option>
           <option value="logs">Logs</option>
-          <option value="transactions">Transactions</option>
+          <option value="trans">Transactions</option>
         </select>
       </div>
       <div class="go-btn">
         <button @click="getResults" type="button" name="button">Go</button>
       </div>
     </div>
-    <div class="results">
-      <pre>{{ results }}</pre>
+    <div class="results" :class="{'loading': isLoading}">
+      <div v-if="isLoading">
+        {{ results }}
+      </div>
+      <pre v-else >{{ results }}</pre>
     </div>
   </div>
 </template>
 <script>
 import InputField from './InputField'
+import { mapActions } from 'vuex'
+const YAML = require('json-to-pretty-yaml')
 
 export default {
   name: 'Example',
@@ -33,14 +39,31 @@ export default {
   data() {
     return {
       address: '0x873029fead9cc9c05860557576ca1577f420a801', // example address
-      results: {}
+      results: '',
+      options: '',
+      hasError: false,
+      isLoading: false
     }
   },
   props: [],
   computed: {},
   methods: {
-    getResults() {
-      this.results = ''
+    ...mapActions(['getAddress']),
+    async getResults() {
+      if (!this.options) {
+        this.hasError = true
+        console.log('error no option selected')
+      } else {
+        this.isLoading = true
+        this.results = 'Loading...'
+        this.hasError = false
+        let results = await this.getAddress({
+          query: this.options,
+          address: this.address
+        })
+        this.isLoading = false
+        this.results = YAML.stringify(results)
+      }
     }
   }
 }
@@ -51,6 +74,8 @@ export default {
 .container {
   margin: 12vh 30% 0 30%;
   background-color: #fafffd;
+  padding: 20px;
+  box-sizing: border-box;
   .nav-back {
     a {
       text-decoration: none;
@@ -109,6 +134,18 @@ export default {
     min-height: 60vh;
     background-color: #d3d3d35c;
     border-radius: $border-radius;
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.6;
+    }
   }
+}
+
+.error-class {
+  border-color: red;
+}
+.loading {
+  text-align: center;
 }
 </style>

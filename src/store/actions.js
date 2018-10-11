@@ -1,7 +1,7 @@
 import Web3 from 'web3'
-// import Web3Data from 'web3data-js'
-// import dotenv from 'dotenv'
-// dotenv.load()
+import Web3Data from 'web3data-js'
+import dotenv from 'dotenv'
+dotenv.load()
 
 const getAbiDeployedAddress = abi => {
   const networks = abi.networks
@@ -68,18 +68,35 @@ export default {
         dispatch('mountContract')
       }, 500)
     }
+  },
+
+  async getAddress(context, { query, address }) {
+    const w3d = new Web3Data({
+      apiKey: process.env.API_KEY || 'UAK5e4cae75f484a9c8e3cd19a41b3fa977',
+      blockchainId: '1c9c969065fcd1cf' /* Ethereum-mainnet */
+    })
+    console.log('b4 swtich: address', address)
+    switch (query) {
+      case 'info':
+        console.log('info')
+        return await w3d
+          .addresses(address)
+          .info()
+          .retrieve()
+      case 'logs':
+        return await w3d
+          .addresses(address)
+          .logs()
+          .retrieve()
+      case 'trans':
+        return await w3d
+          .addresses(address)
+          .transactions()
+          .retrieve()
+      default:
+        console.log('default')
+    }
   }
-  // },
-  //
-  // initializeWeb3Data({ commit }) {
-  //   commit(
-  //     'SET_W3DATA',
-  //     new Web3Data({
-  //       apiKey: process.env.API_KEY,
-  //       blockchainId: '1c9c969065fcd1cf' /* Ethereum-mainnet */
-  //     })
-  //   )
-  // }
   //
   // getAddressInfo({ state }, addressHash) {
   //   return state.w3Data

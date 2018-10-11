@@ -30,6 +30,8 @@
     "@babel/runtime": "^7.0.0",
     "axios": "^0.18.0",
     "bignumber.js": "^7.2.1",
+    "dotenv": "^6.1.0",
+    "json-to-pretty-yaml": "^1.2.2",
     "paper": "^0.11.5",
     "truffle-contract": "^3.0.6",
     "truffle-hdwallet-provider": "0.0.6",
@@ -37,7 +39,8 @@
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
     "web3": "^1.0.0-beta.36",
-    "web3data-js": "^0.3.3",
+    "web3data-deploy": "file:../web3data-deploy",
+    "web3data-js": "github:web3data/web3data-js#dev-01",
     "zeppelin-solidity": "^1.12.0"
   },
   "devDependencies": {
