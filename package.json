@@ -1,6 +1,6 @@
 {
   "name": "vue-truffle-web3data-starter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A started pack for building dapps with truffle, vue, and web3data!",
   "main": "index.js",
   "directories": {
@@ -27,7 +27,10 @@
     "blockchain",
     "smart contracts"
   ],
-  "authors": ["@taylorjdawson", "@trevorjtclarke"],
+  "authors": [
+    "@taylorjdawson",
+    "@trevorjtclarke"
+  ],
   "license": "Apache",
   "dependencies": {
     "axios": "^0.18.0",
