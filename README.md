@@ -64,23 +64,29 @@ Clone repo:
 
 Install [Truffle](http://truffleframework.com):
 	```bash
-	npm install -g truffle // Version 3.0.5+ required.
+	npm install -g truffle
 	```
 
-Compile and migrate the contracts:
+## Usage
+Start your local ganache blockchain by running:
+```bash
+npm run cli
+```
+
+Then, compile and migrate the contracts:
 	```bash
 	truffle compile
 	truffle migrate
 	```
 
-Run the webpack server for front-end hot reloading:
+Finally, run the Webpack server in dev mode for front-end hot reloading:
   ```bash
-  npm run dev
+  npm start
   ```
 
 ## Tests
   ```bash
-  npm run test
+  npm test
   ```
 
 ## Build for production
