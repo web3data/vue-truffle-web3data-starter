@@ -7,7 +7,7 @@ export default {
   connected: false,
   Contract: null,
   contractAddress: null,
-  rpcUrl: null
-  // w3Data: null
+  rpcUrl: null,
+  w3Data: null
   //  abi,
 }

@@ -22,8 +22,8 @@ export default {
   },
   USE_ABI(state, abi) {
     state.abi = abi
+  },
+  SET_W3DATA(state, w3Data) {
+    state.w3Data = w3Data
   }
-  // SET_W3DATA(state, w3Data) {
-  //   state.w3Data = w3Data
-  // }
 }

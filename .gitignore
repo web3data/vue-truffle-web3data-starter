@@ -3,3 +3,5 @@
 .editorconfig
 dist
 node_modules
+.env
+.env.development
