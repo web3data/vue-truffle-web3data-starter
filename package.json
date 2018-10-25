@@ -1,17 +1,18 @@
 {
   "name": "vue-truffle-web3data-starter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A started pack for building dapps with truffle, vue, and web3data!",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "tests"
   },
   "scripts": {
     "dev": "node scripts/dev-server.js",
     "start": "npm run dev",
     "build": "node scripts/build.js",
     "cli": "ganache-cli",
-    "test": "npm run lint && truffle test",
+    "test": "",
+    "test-example": "npm run lint && truffle test",
     "lint": "eslint --ext .js,.vue --ignore-path .eslintignore .",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .eslintignore ."
   },
