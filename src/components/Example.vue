@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <div class="nav-back">
-      <router-link to="/">&#9001; BACK</router-link>
+      <img src="/static/arrow-left-b.svg" alt="">
+      <router-link to="/">BACK</router-link>
     </div>
     <InputField :value="address" />
     <div class="example-selector">
@@ -72,16 +73,21 @@ export default {
 @import '../scss/main.scss';
 
 .container {
-  margin: 12vh 30% 0 30%;
-  background-color: #fafffd;
-  padding: 20px;
+  margin: 10vh 30% 10vh 30%;
+  background-color: $white;
   box-sizing: border-box;
   .nav-back {
+    display: grid;
+    grid-template-columns: 25px 100px;
+    align-items: center;
+    justify-items: left;
+    img {
+      width: 100%;
+    }
     a {
       text-decoration: none;
       color: black;
       font-size: 1.25vw;
-      padding: 10px 20px;
       transition: 0.3s;
     }
   }
@@ -131,13 +137,30 @@ export default {
   }
   .results {
     margin-top: 40px;
-    min-height: 60vh;
+    min-height: 50vh;
     background-color: #d3d3d35c;
     border-radius: $border-radius;
     pre {
       white-space: pre-wrap;
       word-break: break-word;
       line-height: 1.6;
+      max-height: 50vh;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      /* width */
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: black;
+      }
     }
   }
 }

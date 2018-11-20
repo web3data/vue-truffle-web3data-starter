@@ -30,16 +30,16 @@ export default {
 @import './scss/main.scss';
 
 body {
-  background: #fafffd;
+  background: $white;
   padding: 0;
   margin: 0;
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $black;
+  color: #616161;
   margin: 0;
   display: flex;
   flex-direction: column;
