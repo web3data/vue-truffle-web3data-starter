@@ -14,7 +14,7 @@ step-content<template>
         <h3>+</h3>
         <img src="static/web3.png" alt="">
         <h3>+</h3>
-        <img src="static/android-chrome-512x512.png" alt="">
+        <img src="static/web3data_logo_bug_color_v1.svg" alt="">
       </div>
     </div>
     <div class="grid subtitle">
@@ -26,27 +26,21 @@ step-content<template>
     </div>
     <div class="grid steps">
       <div class="subgrid">
-        <Step color="d8fbd4" step="step-1"/>
-        <div class="step step-1 step-content">
-          <h2>1. Get Started</h2>
-          <p>First setup an account to get fast &amp; easy contract data, via web3data API.
-            <br>
-            Go to amberdata.io to obtain your api key:</p>
-          <img src="../../static/sigin.gif">
-        </div>
-        <Step color="ded4fb" step="step-2"/>
-        <div class="step step-2 step-content">
-          <h2>2. Connect dApp Starter</h2>
+        <Step color="d8fbd4">
+          <h2 slot="header">1. Get Started</h2>
+          <p>First setup an account to get fast &amp; easy contract data, via web3data API. Go to <a class="clickable" target="_blank" href="https://amberdata.io/">Amberdata.io</a> to obtain your api key:</p>
+          <img src="../../static/sigin.gif" slot="image">
+        </Step>
+        <Step color="ded4fb">
+          <h2 slot="header">2. Connect dApp Starter</h2>
           <p>Using your shiny new api key 🗝️✨ create a web3data instance:</p>
-          <img src="../../static/web3data_example.svg">
-        </div>
-        <Step color="fbe8d4" step="step-3"/>
-        <div class="step step-3 step-content">
-          <h2>3. Test Locally</h2>
-          <p>First setup an account to get fast &amp; easy contract data, via web3data API.<br>
-            Go to amberdata.io to obtain your api key:</p>
-          <router-link to="/example">Try it now!</router-link>
-        </div>
+          <img src="../../static/web3data_example.svg" slot="image">
+        </Step>
+        <Step color="fbe8d4">
+          <h2 slot="header">3. Test Locally</h2>
+          <p>Finally, you're almost ready to rock and roll. Deploy your contract and then it's time to get some	live data from rinkeby, using <code>web3data</code>: </p>
+          <router-link class="testButton clickable" to="/example">Try it now!</router-link>
+        </Step>
       </div>
     </div>
   </div>
@@ -74,6 +68,7 @@ export default {
   justify-items: center
   align-items: center
   text-align: center
+  min-height: 850px
   .header-image
     img
       width: 55%
@@ -102,40 +97,19 @@ export default {
       display: grid
       grid-template-columns: 1fr 1fr 1fr
       justify-items: center
-      .step
-        width: 75%
-      .step-content
-        width: 63%
-        text-align: left
-        pointer-events: none
-        z-index: 1
-        display: grid
-        grid-template-rows: auto 1fr 70%
-        img
-          width: 100%
-          align-self: center
-
-      .step-1
-        grid-column-start: 1
-        grid-row-start: 1
-      .step-2
-        grid-column-start: 2
-        grid-row-start: 1
-      .step-3
-        grid-column-start: 3
-        grid-row-start: 1
-        grid-template-rows: auto 1fr 1fr
-        a
-          color: black
-          text-decoration: none
-          align-self: center
-          justify-self: center
-          padding: 7.75px 61.4px
-          border-radius: 17px
-          background-color: #ff915f
-          box-shadow: 1px 2px 14px 1px #69696959
-          pointer-events: all
-          &:hover
-            box-shadow: 2px 3px 14px 3px #69696959
-
+      grid-column-gap: 20px
+.testButton
+    margin-top: 125px
+    color: black
+    text-decoration: none
+    align-self: center
+    justify-self: center
+    padding: 7.75px 61.4px
+    border-radius: 17px
+    background-color: #FDC991
+    box-shadow: 1px 2px 14px 1px #69696959
+    &:hover
+      box-shadow: 2px 3px 14px 3px #69696959
+.clickable
+  pointer-events: all
 </style>

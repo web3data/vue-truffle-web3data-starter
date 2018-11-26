@@ -1,6 +1,6 @@
 {
   "name": "vue-truffle-web3data-starter",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A started pack for building dapps with truffle, vue, and web3data!",
   "main": "index.js",
   "directories": {
