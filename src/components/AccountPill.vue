@@ -29,11 +29,7 @@ export default {
   display: grid
   grid-template-columns: 20% 70%
   background-color: #EFEFEF
-  position: absolute
-  right: 40px
-  top: 10px
   width: 172px
-  padding: 3px
   border-radius: 30px
   align-items: center
   justify-items: center
@@ -50,7 +46,7 @@ export default {
       color: $black
       pointer-events: none
   img
-    width: 100%
+    width: 28px
   .clickable
     pointer-events: inherit
 </style>

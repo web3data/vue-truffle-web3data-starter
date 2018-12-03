@@ -35,25 +35,24 @@ export default {
 <style lang="sass" scoped>
 @import '../scss/main.scss'
 .card
-  border-radius: 40px
-  box-shadow: 0px 2px 24px 10px #b9b9b938
+  border-radius: 48px
+  box-shadow: 0px 2px 12px -1px #b9b9b938
   position: relative
   transition: all 220ms ease-in-out
   color: $black
   svg
     z-index: -1
-    width: 375px
     fill: $white
+    position: absolute
+    top: 0
+    left: 0
   .content
     text-align: left
     pointer-events: none
     z-index: 1
     display: grid
     grid-template-rows: 50px 100px auto
-    position: absolute
-    top: 0
-    left: 0
-    padding: 20px
+    padding: 40px
     img
       width: 100%
       align-self: center
@@ -65,6 +64,6 @@ export default {
         color: $black
         pointer-events: all
   &:hover
-    box-shadow: 0px 2px 24px 10px #b9b9b938, 0px 22px 24px 10px #b9b9b938
+    box-shadow: 0px 22px 24px 10px #b9b9b938
 
 </style>

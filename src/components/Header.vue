@@ -33,20 +33,12 @@ export default {
 <style lang="sass" scoped>
 @import '../scss/main.scss'
 .header
-  width: 100%
-  height: 7vh
+  padding: 10px 40px
   display: flex
   background-color: $white
   justify-content: space-between
-  position: relative
-  min-height: 50px
+  max-height: 48px
   .logo
     img
       width: 200px
-      position: absolute
-      left: 40px
-      top: 10px
-.rotate
-  transform: rotate(180deg)
-
 </style>

@@ -38,7 +38,7 @@ step-content<template>
         </Step>
         <Step color="fbe8d4">
           <h2 slot="header">3. Test Locally</h2>
-          <p>Finally, you're almost ready to rock and roll. Deploy your contract and then it's time to get some	live data from rinkeby, using <code>web3data</code>: </p>
+          <p>Finally, you're almost ready to rock and roll. Deploy your contract and then it's time to get some	live data from rinkeby, using <a class="clickable" href="https://github.com/web3data/web3data-js"><code>web3data-js</code></a>: </p>
           <router-link class="testButton clickable" to="/example">Try it now!</router-link>
         </Step>
       </div>
@@ -63,13 +63,18 @@ export default {
 <style lang="sass" scoped>
 .home
   display: grid
-  height: 93vh
+  height: 93vh 
+  // height: 100vh
+  // min-height: 960px
+  margin-top: -68px
   grid-template-rows: 15% 5% 15% 10% 1fr
   justify-items: center
   align-items: center
   text-align: center
-  min-height: 850px
+  a
+    color: black
   .header-image
+    align-self: baseline
     img
       width: 55%
   .title
@@ -95,11 +100,12 @@ export default {
   .steps
     .subgrid
       display: grid
-      grid-template-columns: 1fr 1fr 1fr
+      grid-template-columns: repeat(3, 1fr)
       justify-items: center
-      grid-column-gap: 20px
+      grid-column-gap: 40px
+      padding: 0 10%
 .testButton
-    margin-top: 125px
+    margin-top: 195px
     color: black
     text-decoration: none
     align-self: center
@@ -112,4 +118,5 @@ export default {
       box-shadow: 2px 3px 14px 3px #69696959
 .clickable
   pointer-events: all
+
 </style>
