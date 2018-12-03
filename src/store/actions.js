@@ -72,7 +72,7 @@ export default {
 
   async getAddress(context, { query, address }) {
     const w3d = new Web3Data({
-      apiKey: process.env.API_KEY || 'UAK5e4cae75f484a9c8e3cd19a41b3fa977',
+      apiKey: process.env.AMBERDATA_API_KEY,
       blockchainId: '1c9c969065fcd1cf' /* Ethereum-mainnet */
     })
     console.log('b4 swtich: address', address)

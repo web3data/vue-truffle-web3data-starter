@@ -29,7 +29,7 @@ export default {
   display: grid
   grid-template-columns: 20% 70%
   background-color: #EFEFEF
-  width: 172px
+  width: 160px
   border-radius: 30px
   align-items: center
   justify-items: center

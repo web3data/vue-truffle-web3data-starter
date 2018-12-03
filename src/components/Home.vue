@@ -63,10 +63,9 @@ export default {
 <style lang="sass" scoped>
 .home
   display: grid
-  height: 93vh 
-  // height: 100vh
-  // min-height: 960px
-  margin-top: -68px
+  height: 100vh
+  min-height: 960px
+  margin-top: 50px
   grid-template-rows: 15% 5% 15% 10% 1fr
   justify-items: center
   align-items: center
@@ -82,7 +81,7 @@ export default {
       margin: 0
       color: #6BBCD6
       font-size: 36px
-      font-weight: normal
+      font-weight: bold
   .logos
     width: 35%
     img

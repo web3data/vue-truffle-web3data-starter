@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="logo">
-      <img src="../../static/logo.svg">
+      LOGO
     </div>
     <!-- TODO: This will display loading at first -->
     <AccountPill :address="acct"/>
@@ -33,12 +33,19 @@ export default {
 <style lang="sass" scoped>
 @import '../scss/main.scss'
 .header
-  padding: 10px 40px
+  padding: 5px 40px
   display: flex
   background-color: $white
   justify-content: space-between
   max-height: 48px
   .logo
-    img
-      width: 200px
+    display: flex
+    font-weight: bold
+    text-align: center
+    justify-content: center
+    align-content: center
+    padding: 7px
+    border-radius: 3px
+    width: 100px
+    background-color: #d8d8d8
 </style>
