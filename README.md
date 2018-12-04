@@ -2,6 +2,8 @@
 Here you will find everything you need to get started with a Vue dApp!
 Comes preconfigured with [`Webpack`](link), [`Truffle`](http://truffleframework.com), [`Vue.js`](https://vuejs.org/), [`vue-router`](https://router.vuejs.org/en/), [`Vuex`](https://vuex.vuejs.org/en/intro.html) and [`sass-loader`](https://github.com/webpack-contrib/sass-loader).
 
+![Welcome to web3 vue starter repo](./static/vue-starter.png)
+
 ## Installation
 Clone repo:
 ```bash
